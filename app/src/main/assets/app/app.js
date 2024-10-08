@@ -223,6 +223,7 @@ folder_name_input.addEventListener('input', checkInputFieldFolder);
 
 create_new_folder_btn.addEventListener('click', () => {
     create_folder_dialog.show();
+        ThemeDialogRegular()
     window.history.pushState({ CreateFolderDialog: true }, "");
 });
 
@@ -241,6 +242,9 @@ create_folder_dialog.addEventListener('closed', () => {
     
 });
 
+create_folder_dialog.addEventListener('close', () => {
+    ThemeTabs()
+});
 
 function createFolder() {
     const folderName = folder_name_input.value;
@@ -519,11 +523,15 @@ function updateSelectedCount() {
         setTimeout(()=>{
             deleteSelectedLinksBtn.disabled = true;
         }, 300);
-        document.getElementById('manage_page_watermark').hidden = false;
     } else{
         deleteSelectedLinksBtn.disabled = false;
-        document.getElementById('manage_page_watermark').hidden = true;
     }
+
+        if(totalCount < 1){
+            document.getElementById('manage_page_watermark').hidden = false;
+        } else{
+            document.getElementById('manage_page_watermark').hidden = true;
+        }
 }
 
 function deleteSelectedLinks() {

@@ -4,6 +4,7 @@ function editLink(linkData) {
     edit_link_address_input.value = linkData.address;
     edit_link_note_input.value = linkData.note;
     edit_link_dialog.show();
+    ThemeDialogRegular()
 
     window.currentLinkId = linkData.id;
 }
@@ -33,3 +34,7 @@ function saveEditedLink() {
     updateChips()
     edit_link_dialog.close();
 }
+
+edit_link_dialog.addEventListener('close', () => {
+    ThemeTabs()
+});
