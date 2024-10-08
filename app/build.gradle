@@ -10,8 +10,8 @@ android {
         applicationId "com.example.linksmaster"
         minSdk 22
         targetSdk 33
-        versionCode 1
-        versionName "1.0.0 (L)"
+        versionCode 2
+        versionName "1.1.0 (L)"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
