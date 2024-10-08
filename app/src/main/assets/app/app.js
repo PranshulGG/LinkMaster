@@ -281,7 +281,7 @@ function renderFolder(folderData) {
             <md-icon icon-outlined>delete</md-icon>
         </md-icon-button></div>
     `;
-
+//cool
 
     folders_container.appendChild(folder_item);
     
