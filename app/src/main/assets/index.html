@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-color-theme="Material You (Olive pop green 49)">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>LinkMaster</title>
+    <link rel="stylesheet" href="ui-files/font-usage.css">
+    <link rel="stylesheet" href="ui-files/variables.css">
+    <link rel="stylesheet" href="ui-files/ui.css">
+    <link rel="stylesheet" href="components/components.css">
+    <link rel="stylesheet" href="components/modal-ver.css">
+    <link rel="stylesheet" href="components/segment-btns.css">
+</head>
+
+<body>
+
+    <div class="cover"></div>
+
+    <div class="full-activity-header transparent">
+        <p style="margin-left: 16px;" id="current_tab_label">Home</p>
+        <space></space>
+        <md-icon-button id="create_new_folder_btn" hidden>
+            <md-icon icon-outlined>add</md-icon>
+        </md-icon-button>
+        <md-icon-button onclick="transitionToPage('pages/settings.html'); ThemeRegular()">
+            <md-icon icon-outlined>settings</md-icon>
+        </md-icon-button>
+    </div>
+
+    <div class="tab-content" id="tab-content-0" style="overflow: hidden;">
+
+        <div class="folder_selections">
+            <div id="folder_filter_set">
+            </div>
+        </div>
+
+        <div class="search_header_home">
+            <div class="search_container">
+                <md-icon icon-outlined>search</md-icon>
+                <input type="search" placeholder="Search..." id="linkSearchBar">
+            </div>
+        </div>
+
+        <div class="link_holder">
+
+            <md-list id="saved_links">
+            </md-list>
+            <watermark id="home_page_watermark" style="position: absolute; top: calc(65px + 71px); width: 100%;">
+                <i icon-outlined>search_off</i>
+                <p>No Links</p>
+            </watermark>
+        </div>
+
+
+        <!-- edit link dialog -->
+
+        <md-dialog id="edit_link_dialog">
+            <div slot="headline">Edit link</div>
+
+            <div slot="content" style="display: flex; flex-direction: column; gap: 7px;">
+                <md-outlined-text-field placeholder="Link name" id="edit_link_name_input"></md-outlined-text-field>
+                <md-outlined-text-field placeholder="Link address"
+                    id="edit_link_address_input"></md-outlined-text-field>
+                <md-outlined-text-field placeholder="Link note" type="textarea"
+                    id="edit_link_note_input"></md-outlined-text-field>
+            </div>
+
+            <div slot="actions">
+                <md-text-button id="saveEditedLinkBtn">Save</md-text-button>
+            </div>
+        </md-dialog>
+
+    </div>
+
+    <!--------------------------------------------------------------------------->
+    <div class="tab-content" id="tab-content-1" style="overflow: hidden;">
+        <div class="search_header_home">
+            <div class="search_container">
+                <md-icon icon-outlined>search</md-icon>
+                <input type="search" placeholder="Search..." id="folderSearchBar">
+            </div>
+        </div>
+
+
+        <div class="folders_holder">
+
+            <md-list id="folders_container">
+
+
+
+
+            </md-list>
+
+        </div>
+
+
+        <md-dialog id="create_folder_dialog">
+            <div slot="headline">Create a folder</div>
+
+            <div slot="content">
+                <md-outlined-text-field id="folder_name_input"></md-outlined-text-field>
+            </div>
+
+            <div slot="actions">
+                <md-text-button onclick="window.history.back()">Cancel</md-text-button>
+                <md-text-button id="saveFolderBtn" disabled>Save</md-text-button>
+            </div>
+
+        </md-dialog>
+
+        <!-- edit dialog -->
+
+
+        <md-dialog id="edit_folder_dialog">
+            <div slot="headline">Edit folder</div>
+
+            <div slot="content">
+                <md-outlined-text-field id="edit_folder_name_input"></md-outlined-text-field>
+            </div>
+
+            <div slot="actions">
+                <md-text-button id="saveEditedFolderBtn">Save</md-text-button>
+            </div>
+
+        </md-dialog>
+
+    </div>
+
+    <!--------------------------------------------------------------------------->
+    <div class="tab-content" id="tab-content-2">
+
+        <md-list>
+
+            <md-list-item>
+                <div slot="headline">Folder</div>
+                <div slot="supporting-text" style="padding-top: 5px;">
+                    <md-outlined-select style="width: 100%;" id="link_folder_menu">
+                        <md-select-option value="New folder" selected>
+                            <div slot="headline">New folder</div>
+                        </md-select-option>
+                    </md-outlined-select>
+                </div>
+            </md-list-item>
+
+
+            <md-list-item>
+                <div slot="headline">Name</div>
+                <div slot="supporting-text" style="padding-top: 5px;">
+                    <md-outlined-text-field style="width: 100%;" placeholder="Enter name"
+                        id="link_name_input"></md-outlined-text-field>
+                </div>
+            </md-list-item>
+
+            <md-list-item>
+                <div slot="headline">Link</div>
+                <div slot="supporting-text" style="padding-top: 5px;">
+                    <md-outlined-text-field style="width: 100%;" placeholder="Enter link"
+                        id="link_address_input"></md-outlined-text-field>
+                </div>
+            </md-list-item>
+
+            <md-list-item>
+                <div slot="headline">Note (optional)</div>
+                <div slot="supporting-text" style="padding-top: 5px;">
+                    <md-outlined-text-field style="width: 100%;" type="textarea" placeholder="Enter note"
+                        id="link_note_input"></md-outlined-text-field>
+                </div>
+            </md-list-item>
+            <md-list-item hidden>
+                <div slot="headline">Open in incognito</div>
+                <md-switch slot="end" id="openIncognitoLinkSwitch"></md-switch>
+            </md-list-item>
+    
+        </md-list>
+
+
+        <div class="save_link_btn" style="padding-bottom: 20px;">
+            <md-elevated-button id="save_folder_link_btn" disabled>
+                Save
+                <md-icon icon-outlined slot="icon">save</md-icon>
+            </md-elevated-button>
+        </div>
+
+    </div>
+
+    <!--------------------------------------------------------------------------->
+    <div class="tab-content" id="tab-content-3">
+
+        <div id="manage_links_all">
+            <div class="top_manage_link_header">
+
+                <p id="selected_count">0/0 selected</p>
+                <md-icon-button id="delete_selected_links_btn" disabled>
+                    <md-icon icon-filled>delete</md-icon>
+                </md-icon-button>
+            </div>
+
+            <div id="manage_links"></div>
+
+            <watermark id="manage_page_watermark">
+                <i icon-outlined>search_off</i>
+                <p>No Links</p>
+            </watermark>
+    
+        </div>
+
+    </div>
+
+
+
+
+    <div class="nav-tab" id="nav-tab">
+        <div class="main-btn">
+            <label class="btn-nav">
+                <button id="home" class="nav-icon tab" onclick="showTab(0)">home</button>
+                <label class="label" for="home">Home</label>
+            </label>
+            <label class="btn-nav">
+                <button id="folders" class="nav-icon tab" onclick="showTab(1)">folder</button>
+                <label class="label" for="folders">Folders</label>
+            </label>
+            <label class="btn-nav">
+                <button id="new" class="nav-icon tab" onclick="showTab(2)">add</button>
+                <label class="label" for="new">New</label>
+            </label>
+            <label class="btn-nav">
+                <button id="manage" class="nav-icon tab" onclick="showTab(3)">list_alt</button>
+                <label class="label" for="manage">Manage</label>
+            </label>
+        </div>
+    </div>
+
+    <script>
+
+        
+function sendThemeToAndroid(theme) {
+
+AndroidInterface.updateStatusBarColor(theme);
+};
+
+
+document.addEventListener('DOMContentLoaded', () =>{
+    ThemeTabs()
+
+});
+
+    </script>
+
+    <script type="module" src="./index.js"></script>
+    <script src="./bundle.js"></script>
+    <script src="app/app.js"></script>
+    <script src="components-script.js/bottom-nav.js"></script>
+    <script src="components-script.js/components.js"></script>
+    <script src="ThemeCompo/add_ripple.js"></script>
+    <script src="ThemeCompo/apply.js"></script>
+    <script src="ThemeCompo/call-themes.js"></script>
+    <script src="app/editLink.js"></script>
+    <script src="modules/navigate.js"></script>
+</body>
+
+</html>

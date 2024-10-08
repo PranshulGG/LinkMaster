@@ -1,0 +1,238 @@
+
+
+*{
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;
+  touch-action: manipulation;
+  caret-color: var(--Primary);
+  -webkit-user-drag: none;
+}
+
+*::selection{
+  background-color: var(--Inverse-Primary);
+  color: var(--On-Surface);
+}
+
+*::placeholder{
+  color: var(--On-Surface-Variant);
+  opacity: 0.6;
+}
+
+[hidden]{
+  display: none !important;
+}
+
+.btn-nav{
+  width: 100%;
+}
+
+body{
+  padding: 0;
+  margin: 0;
+  background-color: var(--Surface);
+  overflow: hidden;
+  height: 100%;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+
+
+
+.main-btn{
+  font-family: var(--outfit-mid);
+}
+
+space{
+  flex: 1;
+}
+
+#folder_filter_set{
+  display: flex;
+  padding: 10px;
+  overflow: auto;
+  gap: 6px;
+}
+
+.search_header_home{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.search_header_home .search_container{
+  height: 56px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: var(--Surface-Container-High);
+  border-radius: 50px;
+  width: calc(100% - 60px);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.search_header_home .search_container md-icon{
+  color: var(--On-Surface);
+}
+
+.search_header_home .search_container input{
+  background-color: transparent;
+  font-size: 18px;
+  font-family: var(--google-normal);
+  color: var(--On-Surface);
+  border: none;
+  width: 100%;
+  padding-right: 5px;
+}
+
+input::placeholder{
+  font-family: var(--outfit);
+}
+
+watermark{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 100px;
+  opacity: 0.6;
+}
+
+watermark > p{
+  color: var(--On-Surface-Variant);
+  margin: 0;
+  font-family: var(--google-mid);
+  font-size: 24px;
+}
+
+watermark > i{
+  color: var(--On-Surface-Variant);
+  font-size: 50px;
+}
+
+.folders_holder, .link_holder{
+  overflow: auto;
+  padding: 5px;
+  height: calc(100% - 71px);
+}
+
+.folder_icon_holder{
+  width: 30px;
+  padding: 10px;
+  height: 30px;
+  background-color: var(--Surface-Container-Low);
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--On-Surface);
+}
+
+.folder_icon_holder > md-icon{
+  font-size: 25px;
+}
+
+.save_link_btn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.top_manage_link_header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--Surface-Container-Low);
+  margin: 10px;
+  border-radius: 20px;
+  margin-top: 0;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.top_manage_link_header p{
+  margin: 0;
+  font-size: 18px;
+  color: var(--On-Surface-Variant);
+  font-family: var(--outfit);
+}
+
+#manage_links > md-list-item > label{
+ position: absolute;
+ width: 100%;
+ left: 0;
+ top: 0;
+ background-color: transparent;
+ opacity: 0;
+ height: 100%;
+}
+
+#manage_links > md-list-item > input{
+  display: none;
+}
+
+
+#manage_links > md-list-item{
+  position: relative;
+}
+
+#manage_links > md-list-item > .folder_icon_holder::before{
+  content: 'check';
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--Primary);
+  color: var(--On-Primary);
+  font-size: 24px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  font-family: 'Material symbols';
+  font-weight: normal !important;
+  display: flex;
+  font-style: normal !important;
+  line-height: 1;
+  border-radius: inherit;
+  transition: opacity 0.2s ease-out;
+}
+
+#manage_links > md-list-item > .folder_icon_holder{
+  position: relative;
+}
+
+#manage_links > md-list-item.checked .folder_icon_holder::before{
+  opacity: 1;
+}
+
+#manage_links > md-list-item.checked{
+  background-color: var(--Surface-Container-Low);
+}
+
+click_area{
+  position: absolute;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.cover{
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--Surface);
+  
+}
+

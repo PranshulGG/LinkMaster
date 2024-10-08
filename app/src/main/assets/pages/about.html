@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>about Page</title>
+    <link rel="stylesheet" href="../ui-files/ui.css">
+    <link rel="stylesheet" href="../ui-files/font-usage.css">
+    <link rel="stylesheet" href="../ui-files/variables.css">
+    <link rel="stylesheet" href="../components/components.css">
+    <link rel="stylesheet" href="../components/modal-ver.css">
+    <link rel="stylesheet" href="../ripple-files/ripple.css">
+    <link rel="stylesheet" href="../components/segment-btns.css">
+    <style>
+        .toast_version {
+            position: fixed;
+            border-radius: 10px;
+            font-size: 18px;
+            font-family: var(--outfit);
+            bottom: 15px;
+            left: 50%;
+            color: var(--On-Secondary-Container);
+            background-color: var(--Secondary-Container);
+            width: max-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateX(-50%);
+            padding: 10px;
+            animation: opacity 0.3s ease-out;
+            transition: opacity 0.2s ease-in;
+        }
+
+        @keyframes opacity {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .toast_version p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body
+    style="--md-list-item-label-text-size: 1.15rem; --md-list-item-pressed-state-layer-opacity: 0.15; --md-ref-typeface-plain: var(--google-normal); background-color: var(--Surface);">
+
+    <div class="activity-large open">
+        <div class="header-activity-large" id="head-1">
+            <button class="ripple-icon-btn regular" data-icon="arrow_back" icon-type="outlined"
+                onclick="window.history.back()">
+            </button>
+            <p class="label-hidden-large">About LinkMaster</p>
+        </div>
+        <div class="activity-large-content" id="headUser-1">
+            <p class="label-large-main">About LinkMaster</p>
+            <div class="content-parent-large">
+
+                <md-list>
+
+                    <md-list-item type="button" onclick="transitionToPage('aboutPages/TermsConditions.html'); ThemeRegular()">
+                        <md-icon slot="start" icon-filled>privacy_tip</md-icon>
+                        <div slot="headline">Terms and Conditions</div>
+                    </md-list-item>
+
+                    <md-list-item type="button" onclick="transitionToPage('aboutPages/PrivacyPolicy.html'); ThemeRegular()">
+                        <md-icon slot="start" icon-filled>policy</md-icon>
+                        <div slot="headline">Privacy Policy</div>
+                    </md-list-item>
+
+                    <md-list-item type="button"
+                        onclick="window.location.href='https://github.com/PranshulGG/LinkMaster'">
+                        <md-icon slot="start" icon-filled>code</md-icon>
+                        <div slot="headline">View source code</div>
+                    </md-list-item>
+
+
+                    <md-list-item type="button" id="checkUpdatesBtn">
+                        <md-icon slot="start" icon-filled>system_update</md-icon>
+                        <div slot="headline">Latest version</div>
+                        <md-circular-progress indeterminate slot="end" style="--md-circular-progress-size: 32px;" hidden
+                            id="version_check_loader"></md-circular-progress>
+                    </md-list-item>
+
+                    <md-list-item type="button"
+                        onclick="window.location.href='https://github.com/PranshulGG/LinkMaster/issues'">
+                        <md-icon slot="start" icon-filled>bug_report</md-icon>
+                        <div slot="headline">Create an issue</div>
+                    </md-list-item>
+
+                    <md-list-item type="button" onclick="transitionToPage('aboutPages/licenses.html'); ThemeRegular()">
+                        <md-icon slot="start" icon-filled>copyright</md-icon>
+                        <div slot="headline">Third party licenses</div>
+
+                    </md-list-item>
+
+
+                    <md-list-item id="show_time_toast">
+                        <md-icon slot="start" icon-filled>info</md-icon>
+                        <div slot="headline" style="margin-bottom: 2px;">Version</div>
+                        <div slot="supporting-text">1.0.0 (L)</div>
+                    </md-list-item>
+
+                </md-list>
+
+
+
+                <div class="toast_version" hidden>
+
+                    <p id="updateMessage"></p>
+                </div>
+
+
+                <p style="opacity: 0; margin-top: 330px;"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+
+
+
+
+const user1 = document.getElementById('headUser-1')
+
+function changeColorOnScroll1() {
+    var container = document.getElementById('headUser-1');
+    var scrollY = container.scrollTop;
+
+    if (scrollY >= 50) {
+        document.getElementById('head-1').style.backgroundColor = 'var(--Surface-Container)';
+        document.getElementById('head-1').style.transition = '';
+
+        document.getElementById('headUser-1').style.scrollSnapType = 'unset';
+        container.removeEventListener('scroll', changeColorOnScroll1);
+
+        ThemeTopBar()
+
+    } else {
+
+    }
+}
+
+if (user1) {
+    document.getElementById('headUser-1').addEventListener('scroll', changeColorOnScroll1);
+}
+
+
+
+function changeColorOnScroll1A() {
+    var container = document.getElementById('headUser-1');
+    var scrollY = container.scrollTop;
+
+    if (scrollY <= 1) {
+        document.getElementById('head-1').style.backgroundColor = '';
+        document.getElementById('head-1').style.transition = 'background-color 0.2s ease-in';
+
+        ThemeRegular()
+
+        container.addEventListener('scroll', changeColorOnScroll1);
+        if (scrollY <= 20); {
+            document.getElementById('headUser-1').style.scrollSnapType = '';
+
+        }
+
+    } else {
+
+    }
+}
+
+if (user1) {
+    document.getElementById('headUser-1').addEventListener('scroll', changeColorOnScroll1A);
+}
+
+function sendThemeToAndroid(theme) {
+
+    AndroidInterface.updateStatusBarColor(theme);
+};
+
+
+
+
+
+        document.getElementById('checkUpdatesBtn').addEventListener('click', async function () {
+            const currentVersion = 'v1.0.0';
+            const githubRepo = 'PranshulGG/LinkMaster';
+            const releasesUrl = `https://api.github.com/repos/${githubRepo}/releases/latest`;
+
+            try {
+                const response = await fetch(releasesUrl);
+                if (!response.ok) throw new Error('Network response was not ok.');
+
+                const data = await response.json();
+                const latestVersion = data.tag_name;
+
+                document.getElementById('version_check_loader').hidden = false;
+                document.getElementById('checkUpdatesBtn').style.pointerEvents = 'none';
+
+                setTimeout(() => {
+                    if (latestVersion !== currentVersion) {
+                        document.getElementById('updateMessage').innerText = 'New version available!';
+                        document.getElementById('version_check_loader').hidden = true;
+                        document.getElementById('checkUpdatesBtn').style.pointerEvents = '';
+                        document.querySelector('.toast_version').hidden = false;
+
+                        setTimeout(() => {
+                            window.location.href = 'https://github.com/PranshulGG/TranslateMaster/releases';
+                        }, 1000);
+
+
+                    } else {
+                        document.getElementById('updateMessage').innerText = 'You are using the latest version!';
+                        document.getElementById('version_check_loader').hidden = true;
+                        document.getElementById('checkUpdatesBtn').style.pointerEvents = '';
+                        document.querySelector('.toast_version').hidden = false;
+                    }
+
+                }, 2000);
+
+
+                setTimeout(() => {
+                    document.querySelector('.toast_version').style.opacity = '0';
+                }, 3800);
+
+                setTimeout(() => {
+                    document.querySelector('.toast_version').hidden = true;
+                    document.querySelector('.toast_version').style.opacity = '';
+                }, 4000);
+            } catch (error) {
+                document.getElementById('updateMessage').innerText = 'Error checking for updates.';
+                console.error('Error:', error);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+    ThemeRegular()
+  });
+    </script>
+
+
+    <script type="module" src="../index.js"></script>
+    <script src="../bundle.js"></script>
+    <script src="../components-script.js/components.js"></script>
+    <script src="../ripple-files/icon-ripple.js"></script>
+    <script src="../modules/navigate.js"></script>
+    <script src="../ThemeCompo/add_ripple.js"></script>
+    <script src="../ThemeCompo/apply.js"></script>
+    <script src="../ThemeCompo/call-themes.js"></script>
+</body>
+
+</html>
