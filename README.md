@@ -50,7 +50,7 @@ LinksMaster is developed with pure HTML, CSS, JavaScript, and Java. Designed to 
 
 # ✅ Todos:
  
- **Any user suggestions**
+ - **Any user suggestions**
    
 <br>
 <br>
