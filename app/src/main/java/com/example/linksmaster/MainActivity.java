@@ -18,6 +18,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.speech.tts.TextToSpeech;
 import android.text.InputType;
 import android.view.View;
@@ -158,7 +159,37 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
 
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                handleSendText(intent);
+            }
+        }
+    }
+
+
+
+
+    private void handleSendText(Intent intent) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            webview.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    callJavaScriptFunctionShared(sharedText);
+                }
+            }, 1000);
+        }
+
+    }
+
+    private void callJavaScriptFunctionShared(String text) {
+        String escapedText = text.replace("'", "\\'");
+
+        webview.evaluateJavascript("javascript:receiveSharedText('" + escapedText + "')", null);
     }
 
     private void checkBiometricSupport() {
@@ -170,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
-
+                callJavaScriptFunction();
                 break;
 
             case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:

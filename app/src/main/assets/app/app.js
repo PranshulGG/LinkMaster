@@ -341,7 +341,9 @@ function deleteFolder(folderName) {
 
     loadFolders();
     updateFolderMenu(); 
-    updateFolderFilter(); 
+    updateFolderFilter();
+    updateChips()
+    checkFirstChip()
     renderAllLinks(); 
 }
 
@@ -560,6 +562,8 @@ function deleteSelectedLinks() {
 
     loadLinks()
     loadFolders();
+    updateChips()
+    checkFirstChip()
 }
 
 
@@ -639,3 +643,10 @@ function copyLink(data) {
 updateChips()
 checkFirstChip()
 updateSelectedCount()
+
+
+
+function receiveSharedText(text){
+    document.getElementById('new').click()
+    link_address_input.value = text;
+}

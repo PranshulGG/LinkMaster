@@ -104,7 +104,7 @@
                     <md-list-item id="show_time_toast">
                         <md-icon slot="start" icon-filled>info</md-icon>
                         <div slot="headline" style="margin-bottom: 2px;">Version</div>
-                        <div slot="supporting-text">1.1.0 (L)</div>
+                        <div slot="supporting-text">1.2.0 (L)</div>
                     </md-list-item>
 
                 </md-list>
@@ -192,7 +192,7 @@ function sendThemeToAndroid(theme) {
 
 
         document.getElementById('checkUpdatesBtn').addEventListener('click', async function () {
-            const currentVersion = 'v1.1.0';
+            const currentVersion = 'v1.2.0';
             const githubRepo = 'PranshulGG/LinkMaster';
             const releasesUrl = `https://api.github.com/repos/${githubRepo}/releases/latest`;
 
@@ -214,7 +214,7 @@ function sendThemeToAndroid(theme) {
                         document.querySelector('.toast_version').hidden = false;
 
                         setTimeout(() => {
-                            window.location.href = 'https://github.com/PranshulGG/TranslateMaster/releases';
+                            window.location.href = 'https://github.com/PranshulGG/LinkMaster/releases';
                         }, 1000);
 
 
