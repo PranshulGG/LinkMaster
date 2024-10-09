@@ -8,13 +8,14 @@ LinksMaster is developed with pure HTML, CSS, JavaScript, and Java. Designed to 
 # 👁️ Preview
 
 
-| Home |                                                                                                      Folders|                                                                                           Add links|  Manage links| 
-| :---: |                                                                                                    :---: |                                                                                                     :---: |             :---: | 
-| <img src="screenshots/home_link.png" style="width: 250px;"> |  <img src="screenshots/folders_link.png" style="width: 250px;"> |   <img    src="screenshots/newLink_links.png" style="width: 250px;"> |   <img src="screenshots/manage_link.png" style="width: 250px;"> | 
+| Home |                                                                                                      Folders|                                                                                           Add links|  
+| :---: |                                                                                                    :---: |                                                                                                     :---: |             
+| <img src="screenshots/home_link.png" style="width: 250px;"> |  <img src="screenshots/folders_link.png" style="width: 250px;"> |   <img    src="screenshots/newLink_links.png" style="width: 250px;"> |  
 
-| Settings |                                                                                                                                                                             
-| :---: |                                                                                                                                                                                               
-| <img src="screenshots/settings_link.png" style="width: 250px;"> 
+| Manage links |                                                          Settings |                                                               
+| :---: |                                                              :---: |                                                                                                                                        
+| <img src="screenshots/manage_link.png" style="width: 250px;"> |     <img src="screenshots/settings_link.png" style="width: 250px;"> |                                                                                                                                                                   
+
 
 
 <br>
@@ -37,6 +38,7 @@ LinksMaster is developed with pure HTML, CSS, JavaScript, and Java. Designed to 
 - 🎨 **Material Themes:** Customize the app's appearance with a selection of modern material design themes.
 - 🔍 **Search Links:** Quickly find specific links using the built-in search function.
 - 🗂️ **Separate by Folders:** Filter and view links by their designated folders for efficient access.
+- 📲 **Save Links from Anywhere:** Save links directly from any app through the share menu for a seamless experience.
 
 # 🛠️ Built With:
 
