@@ -121,6 +121,12 @@ watermark > i{
   height: calc(100% - 71px);
 }
 
+.link_holder{
+  height: calc(100% - 71px - 52px);
+
+
+}
+
 .folder_icon_holder{
   width: 30px;
   padding: 10px;
