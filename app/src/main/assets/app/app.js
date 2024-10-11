@@ -125,6 +125,8 @@ function createlink() {
         Toast('Link saved!', 'short')
     loadFolders();
     renderAllLinks(); 
+    checkFirstChip();
+            updateChips()
     checkFirstChip()
     }, 150);
 
