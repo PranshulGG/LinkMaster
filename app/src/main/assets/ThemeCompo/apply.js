@@ -1,7 +1,12 @@
 const themeType = localStorage.getItem('ThemeMode') || 'light';
 
 if (!localStorage.getItem('ThemeMode')) {
+
+
+    settimout(() =>{
     localStorage.setItem('ThemeMode', 'light');
+    
+    }, 300)
 
 }
 
